@@ -10,7 +10,6 @@ const Movies = (props) => {
     const handleRequest = async () => {
         try{
             const movieData = await getMovies()
-            console.log(movieData)
             if (movieData) setMovies(movieData)
             setIsLoading(false)
         } catch(err){
@@ -21,7 +20,6 @@ const Movies = (props) => {
 useEffect(() => {
     handleRequest()
 }, [])
-console.log(movies, "movies")
 
 const loading = () => {
     return (
@@ -36,8 +34,8 @@ const loaded = () => {
         <div>
             <h1>All Movies</h1>
             <div>
-                {movies.map((movie) => (
-                    <div key={movie._id}>
+                {movies.map((movie, idx) => (
+                    <div key={idx}>
                         <Link to={`/movies/${movie.id}`}>
                             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster}`} alt={movie.title} />
                             <p>{movie.title}</p>
