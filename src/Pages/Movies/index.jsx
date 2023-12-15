@@ -21,38 +21,39 @@ const Movies = (props) => {
 useEffect(() => {
     handleRequest()
 }, [])
-console.log(movies)
+console.log(movies, "movies")
 
-// const loading = () => {
-//     return (
-//         <div>
-//             <h1>Loading Movies...</h1>
-//         </div>
-//     )
-// }
+const loading = () => {
+    return (
+        <div>
+            <h1>Loading Movies...</h1>
+        </div>
+    )
+}
 
-// const loaded = () => {
-//     return (
-//         <div>
-//             <h1>All Movies</h1>
-//             <div>
-//                 {movies.results.map((movie) => (
-//                     <div key={movie._id}>
-//                         <Link to={`/movies/${movie.id}`}>
-//                             <p>{movie.title}</p>
-//                         </Link>
-//                     </div>
-//                 ))}
-//             </div>
-//         </div>
-//     )
-// }
+const loaded = () => {
+    return (
+        <div>
+            <h1>All Movies</h1>
+            <div>
+                {movies.map((movie) => (
+                    <div key={movie._id}>
+                        <Link to={`/movies/${movie.id}`}>
+                            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster}`} alt={movie.title} />
+                            <p>{movie.title}</p>
+                        </Link>
+                    </div>
+                ))}
+            </div>
+        </div>
+    )
+}
 
-// return (
-//         <div className="Movies">
-//             {movies ? loaded() : loading()}
-//         </div>
-//     )
+return (
+        <div className="Movies">
+            {movies ? loaded() : loading()}
+        </div>
+    )
 }
 
 export default Movies
