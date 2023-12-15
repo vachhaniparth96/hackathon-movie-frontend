@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import  { Link } from "react-router-dom"
+import  "./Movies.css"
 
 import { getMovies } from "../../utilities/movies-service"
 

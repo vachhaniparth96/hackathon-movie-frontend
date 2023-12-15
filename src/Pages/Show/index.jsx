@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "./Show.css";
 
 import { showMovie } from "../../utilities/movies-service";
 
